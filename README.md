@@ -1,5 +1,5 @@
 # Obsidian-plot
-## Obsidian-matrix allows you to quickly and easily create function and vector plots
+## Obsidian-plot allows you to quickly and easily create function and vector plots
 ### Usage
 Simple video showing off Obsidian-matrix:
 ![Usage](usage.gif)
