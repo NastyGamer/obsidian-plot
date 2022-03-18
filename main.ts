@@ -40,7 +40,10 @@ export default class MyPlugin extends Plugin {
 			})
 			const div = el.createEl("div")
 			plot.options.data.map((data) => {
-				return data.fn
+				if(data.fn)
+					return `f(x)=${data.fn}`
+				else
+					return `(${data.vector})`
 			}).forEach((fn, index) => {
 				div.innerHTML = div.innerHTML + `<p><span class='square' style="background-color: ${Globals.COLORS[index]} !important;"></span>${fn}</p>`
 			})
