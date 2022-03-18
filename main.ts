@@ -1,5 +1,6 @@
 import {Plugin} from 'obsidian';
 import functionPlot from "function-plot";
+import Globals from "function-plot/dist/globals";
 
 export default class MyPlugin extends Plugin {
 
@@ -12,7 +13,7 @@ export default class MyPlugin extends Plugin {
 			const rows: Array<string> = src.split("\n").filter((row) =>
 				row.length > 0 && (this.functionRegex.test(row) || this.vectorRegex.test(row) || this.vectorOffsetRegex.test(row))
 			);
-			functionPlot({
+			const plot = functionPlot({
 				//@ts-ignore
 				target: el,
 				data: rows.map((row) => {
@@ -36,6 +37,12 @@ export default class MyPlugin extends Plugin {
 					xLine: true,
 					yLine: true
 				}
+			})
+			const div = el.createEl("div")
+			plot.options.data.map((data) => {
+				return data.fn
+			}).forEach((fn, index) => {
+				div.innerHTML = div.innerHTML + `<p><span class='square' style="background-color: ${Globals.COLORS[index]} !important;"></span>${fn}</p>`
 			})
 		})
 	}
