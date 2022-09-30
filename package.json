@@ -22,6 +22,6 @@
 		"typescript": "4.4.4"
 	},
 	"dependencies": {
-		"function-plot": "^1.22.8"
+		"function-plot": "^1.23.0"
 	}
 }
